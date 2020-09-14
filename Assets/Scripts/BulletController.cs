@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletLongSingleController : MonoBehaviour
+public class BulletController : MonoBehaviour
 {
     public float speed;
     public BulletDirection direction;
     public GameObject explosionPrefab;
+    public int power;
 
     private Vector3 move;
 
@@ -33,11 +34,11 @@ public class BulletLongSingleController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         // Show fire
-        Instantiate(explosionPrefab, transform.position, Unity.Mathematics.quaternion.identity);
-        //Instantiate(explosionPrefab, col.contacts[0].point, Unity.Mathematics.quaternion.identity);
+        //Instantiate(explosionPrefab, transform.position, Unity.Mathematics.quaternion.identity);
+        Instantiate(explosionPrefab, col.contacts[0].point, Unity.Mathematics.quaternion.identity);
 
         // Remove asteroid
-        Destroy(col.gameObject);
+        //Destroy(col.gameObject);
 
         // Remove bullet
         Destroy(gameObject);
@@ -49,3 +50,4 @@ public enum BulletDirection
     Up,
     Down
 }
+

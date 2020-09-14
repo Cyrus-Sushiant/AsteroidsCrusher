@@ -201,6 +201,7 @@ MonoBehaviour:
   maxTime: 6
   minAxis: -7.5
   maxAxis: 7.3
+  health: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
