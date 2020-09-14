@@ -5,17 +5,27 @@ using UnityEngine;
 public class BulletLongSingleController : MonoBehaviour
 {
     public float speed;
+    public BulletDirection direction;
+
+    private Vector3 move;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (direction == BulletDirection.Up)
+        {
+            move = Vector3.up;
+        }
+        else
+        {
+            move = Vector3.down;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
+        transform.Translate(move * speed * Time.deltaTime);
     }
 
     // Collision is called
@@ -27,4 +37,10 @@ public class BulletLongSingleController : MonoBehaviour
         // Remove bullet
         Destroy(gameObject);
     }
+}
+
+public enum BulletDirection
+{
+    Up,
+    Down
 }
