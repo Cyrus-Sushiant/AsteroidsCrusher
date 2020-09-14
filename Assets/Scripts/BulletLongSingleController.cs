@@ -6,6 +6,7 @@ public class BulletLongSingleController : MonoBehaviour
 {
     public float speed;
     public BulletDirection direction;
+    public GameObject explosionPrefab;
 
     private Vector3 move;
 
@@ -31,6 +32,10 @@ public class BulletLongSingleController : MonoBehaviour
     // Collision is called
     private void OnCollisionEnter2D(Collision2D col)
     {
+        // Show fire
+        Instantiate(explosionPrefab, transform.position, Unity.Mathematics.quaternion.identity);
+        //Instantiate(explosionPrefab, col.contacts[0].point, Unity.Mathematics.quaternion.identity);
+
         // Remove asteroid
         Destroy(col.gameObject);
 
