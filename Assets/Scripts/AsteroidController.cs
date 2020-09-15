@@ -9,6 +9,14 @@ public class AsteroidController : MonoBehaviour
     public int health;
     public GameObject explosionPrefab;
 
+    private const string _animationParameterName = "health";
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +28,13 @@ public class AsteroidController : MonoBehaviour
     {
         transform.position += Vector3.down * speed * Time.deltaTime;
         transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+        animator.SetInteger(_animationParameterName, health);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(health);
+        Debug.Log(collision.gameObject.GetComponent<BulletController>().power);
         health -= collision.gameObject.GetComponent<BulletController>().power;
 
         this.CheckHealth();
