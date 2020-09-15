@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,13 +9,17 @@ public class AsteroidController : MonoBehaviour
     public float rotationSpeed;
     public int health;
     public GameObject explosionPrefab;
+    public Sprite[] healthSprite;
 
     private const string _animationParameterName = "health";
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
+    // Called before start
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Start is called before the first frame update
@@ -28,13 +33,10 @@ public class AsteroidController : MonoBehaviour
     {
         transform.position += Vector3.down * speed * Time.deltaTime;
         transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
-        animator.SetInteger(_animationParameterName, health);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(health);
-        Debug.Log(collision.gameObject.GetComponent<BulletController>().power);
         health -= collision.gameObject.GetComponent<BulletController>().power;
 
         this.CheckHealth();
@@ -47,5 +49,26 @@ public class AsteroidController : MonoBehaviour
             Instantiate(explosionPrefab, gameObject.transform.position, Unity.Mathematics.quaternion.identity);
             Destroy(gameObject);
         }
+        else
+        {
+            this.DoAnimationOrChangeSprite();
+        }
+    }
+
+    private void DoAnimationOrChangeSprite()
+    {
+        if (animator != null)
+        {
+            animator.SetInteger(_animationParameterName, health);
+        }
+        else
+        {
+            this.ChangeSprite();
+        }
+    }
+
+    private void ChangeSprite()
+    {
+        spriteRenderer.sprite = healthSprite[health - 1];
     }
 }
