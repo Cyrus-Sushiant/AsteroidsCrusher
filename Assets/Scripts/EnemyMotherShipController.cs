@@ -10,6 +10,8 @@ public class EnemyMotherShipController : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject gun;
 
+    public int power;
+
     private int direction = 0; // 1 = right, -1= left, 0 = direct
 
     // Start is called before the first frame update

@@ -10,6 +10,12 @@ public class SpaceShipController : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject gun;
 
+    public int Health => _health;
+
+    [SerializeField]
+    private int _health;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +34,32 @@ public class SpaceShipController : MonoBehaviour
 
         //Shot
         this.ShootGun();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "BulletEnemy")
+        {
+            _health -= collision.gameObject.GetComponent<BulletController>().power;
+        }
+        else if (collision.gameObject.tag == "ShipEnemy")
+        {
+            _health -= collision.gameObject.GetComponent<EnemyMotherShipController>().power;
+        }
+        else if (collision.gameObject.tag == "Asteroid")
+        {
+            _health -= collision.gameObject.GetComponent<AsteroidController>().health;
+        }
+
+        this.CheckHealth();
+    }
+
+    private void CheckHealth()
+    {
+        if (_health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void ShootGun()
