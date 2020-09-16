@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidSpwanerController : MonoBehaviour
+public class AsteroidSpwaner : MonoBehaviour
 {
     public GameObject asteroidPrefab;
     // time

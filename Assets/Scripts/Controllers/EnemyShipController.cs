@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMotherShipController : MonoBehaviour
+public class EnemyShipController : MonoBehaviour
 {
     public float verticalSpeed;
     public float horizontalSpeed;

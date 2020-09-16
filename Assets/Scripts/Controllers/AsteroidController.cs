@@ -33,11 +33,19 @@ public class AsteroidController : MonoBehaviour
     {
         transform.position += Vector3.down * speed * Time.deltaTime;
         transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+        this.CheckHealth();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        health -= collision.gameObject.GetComponent<BulletController>().power;
+        if (collision.gameObject.tag == "Bullet")
+        {
+            health -= collision.gameObject.GetComponent<BulletController>().power;
+        }
+        //else if (collision.gameObject.tag == "SpaceShip")
+        //{
+        //    health -= collision.gameObject.GetComponent<SpaceShipController>().Health;
+        //}
 
         this.CheckHealth();
     }

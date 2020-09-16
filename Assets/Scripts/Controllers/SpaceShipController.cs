@@ -51,11 +51,13 @@ public class SpaceShipController : MonoBehaviour
         }
         else if (collision.gameObject.tag == "ShipEnemy")
         {
-            _health -= collision.gameObject.GetComponent<EnemyMotherShipController>().power;
+            _health -= collision.gameObject.GetComponent<EnemyShipController>().power;
         }
         else if (collision.gameObject.tag == "Asteroid")
         {
-            _health -= collision.gameObject.GetComponent<AsteroidController>().health;
+            int asHealth = collision.gameObject.GetComponent<AsteroidController>().health;
+            collision.gameObject.GetComponent<AsteroidController>().health -= _health;
+            _health -= asHealth;
         }
 
         this.CheckHealth();
