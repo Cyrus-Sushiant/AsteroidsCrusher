@@ -7,6 +7,7 @@ using UnityEngine;
 public class SpaceShipController : MonoBehaviour
 {
     public float speed;
+    public float fireRate = 0;
     public GameObject bulletPrefab;
     public GameObject[] guns;
 
@@ -14,6 +15,7 @@ public class SpaceShipController : MonoBehaviour
 
     [SerializeField]
     private int _health;
+    private float lastShoot = 0;
 
 
     // Start is called before the first frame update
@@ -69,9 +71,13 @@ public class SpaceShipController : MonoBehaviour
             // Fire bullet
             //Debug.Log("Fire bullet");
 
-            foreach (var gun in guns)
+            if (Time.time > fireRate + lastShoot)
             {
-                Instantiate(bulletPrefab, gun.transform.position, quaternion.identity);
+                foreach (var gun in guns)
+                {
+                    Instantiate(bulletPrefab, gun.transform.position, quaternion.identity);
+                }
+                lastShoot = Time.time;
             }
         }
     }
