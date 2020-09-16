@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 67702761}
   m_Layer: 8
-  m_Name: Gun
+  m_Name: GunForward
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -318,7 +318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   bulletPrefab: {fileID: 5106443496039291347, guid: f28dbcd21f4205f4e84110a8f0af9609, type: 3}
-  gun: {fileID: 67702760}
+  guns:
+  - {fileID: 67702760}
   _health: 3
 --- !u!212 &829460994
 SpriteRenderer:

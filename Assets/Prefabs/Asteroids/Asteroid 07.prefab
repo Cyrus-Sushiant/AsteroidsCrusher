@@ -101,7 +101,10 @@ MonoBehaviour:
   rotationSpeed: 45
   health: 3
   explosionPrefab: {fileID: 3325776520249788050, guid: 9b2de8e4b4a107148a30a7675963d871, type: 3}
-  healthSprite: []
+  healthSprite:
+  - {fileID: 764946483841498670, guid: b2c85503a5706c94fa87fdd1466df2e9, type: 3}
+  - {fileID: 5476775951647407192, guid: b2c85503a5706c94fa87fdd1466df2e9, type: 3}
+  - {fileID: 3252496528444502764, guid: b2c85503a5706c94fa87fdd1466df2e9, type: 3}
 --- !u!58 &3505692423607406030
 CircleCollider2D:
   m_ObjectHideFlags: 0

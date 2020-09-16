@@ -8,7 +8,7 @@ public class SpaceShipController : MonoBehaviour
 {
     public float speed;
     public GameObject bulletPrefab;
-    public GameObject gun;
+    public GameObject[] guns;
 
     public int Health => _health;
 
@@ -69,7 +69,10 @@ public class SpaceShipController : MonoBehaviour
             // Fire bullet
             //Debug.Log("Fire bullet");
 
-            Instantiate(bulletPrefab, gun.transform.position, quaternion.identity);
+            foreach (var gun in guns)
+            {
+                Instantiate(bulletPrefab, gun.transform.position, quaternion.identity);
+            }
         }
     }
 
