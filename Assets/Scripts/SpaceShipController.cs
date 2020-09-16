@@ -10,12 +10,15 @@ public class SpaceShipController : MonoBehaviour
     public float fireRate = 0;
     public GameObject bulletPrefab;
     public GameObject[] guns;
+    public Animator animatorFlame;
 
     public int Health => _health;
 
     [SerializeField]
     private int _health;
     private float lastShoot = 0;
+
+    private const string flameAnimationParameter = "speed";
 
 
     // Start is called before the first frame update
@@ -29,7 +32,9 @@ public class SpaceShipController : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        transform.position += new Vector3(h, v, 0) * speed * Time.deltaTime;
+        Vector3 move = new Vector3(h, v, 0) * speed * Time.deltaTime;
+        transform.position += move;
+        animatorFlame.SetFloat(flameAnimationParameter, move.sqrMagnitude);
 
         // Check position
         this.CheckSpaceShipOutOfBounds();
