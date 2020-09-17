@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  rotationSpeed: 45
+  rotationSpeed: 15
   health: 6
   explosionPrefab: {fileID: 3325776520249788050, guid: 9b2de8e4b4a107148a30a7675963d871, type: 3}
   healthSprite: []
