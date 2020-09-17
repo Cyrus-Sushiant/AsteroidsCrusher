@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AsteroidSpwaner : MonoBehaviour
 {
-    public GameObject asteroidPrefab;
+    public GameObject[] asteroidsPrefab;
     // time
     public float minTime;
     public float maxTime;
@@ -44,6 +44,7 @@ public class AsteroidSpwaner : MonoBehaviour
         Vector3 position = transform.position;
         position.x = Random.Range(minAxis, maxAxis);
 
-        Instantiate(asteroidPrefab, position, Unity.Mathematics.quaternion.identity);
+        int indexAP = Random.Range(0, asteroidsPrefab.Length);
+        Instantiate(asteroidsPrefab[indexAP], position, Unity.Mathematics.quaternion.identity);
     }
 }
