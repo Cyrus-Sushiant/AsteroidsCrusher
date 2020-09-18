@@ -107,7 +107,7 @@ MonoBehaviour:
   - {fileID: 3364033869808761761}
   - {fileID: 3364033869991119524}
   animatorFlame: {fileID: 2976648889116145596}
-  _health: 3
+  _health: 6
 --- !u!50 &2608740345597687487
 Rigidbody2D:
   serializedVersion: 4

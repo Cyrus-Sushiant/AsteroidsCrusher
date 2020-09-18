@@ -105,7 +105,7 @@ MonoBehaviour:
   guns:
   - {fileID: 6877524058536091760}
   animatorFlame: {fileID: 694254722778073517}
-  _health: 3
+  _health: 4
 --- !u!50 &349390834809129134
 Rigidbody2D:
   serializedVersion: 4
