@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   direction: 0
-  explosionPrefab: {fileID: 5550233823308428595, guid: 5d714bc570449f840b988b1f8f348d87, type: 3}
+  explosionPrefab: {fileID: 5769742688534956566, guid: 8f8b89b8f60bde64092698dd40723a64, type: 3}
   power: 1
   sprites:
   - {fileID: 2639281999767427178, guid: f6b3ae2058bc79749ab45355e53142ed, type: 3}
