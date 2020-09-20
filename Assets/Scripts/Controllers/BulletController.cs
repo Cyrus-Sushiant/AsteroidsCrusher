@@ -8,12 +8,20 @@ public class BulletController : MonoBehaviour
     public BulletDirection direction;
     public GameObject explosionPrefab;
     public int power;
+    public Sprite[] sprites;
 
     private Vector3 move;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (spriteRenderer != null && sprites != null)
+        {
+            spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
+        }
+
         if (direction == BulletDirection.Up)
         {
             move = Vector3.up;

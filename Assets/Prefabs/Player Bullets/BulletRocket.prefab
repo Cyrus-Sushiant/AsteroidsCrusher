@@ -101,6 +101,12 @@ MonoBehaviour:
   direction: 0
   explosionPrefab: {fileID: 5550233823308428595, guid: 5d714bc570449f840b988b1f8f348d87, type: 3}
   power: 2
+  sprites:
+  - {fileID: 8979224722143425650, guid: a83adb73f13ebdb418db32e95e599d6d, type: 3}
+  - {fileID: 1461473480119523516, guid: a83adb73f13ebdb418db32e95e599d6d, type: 3}
+  - {fileID: -6427307269019906829, guid: a83adb73f13ebdb418db32e95e599d6d, type: 3}
+  - {fileID: 8489555202525423644, guid: a83adb73f13ebdb418db32e95e599d6d, type: 3}
+  spriteRenderer: {fileID: 2984143271656588989}
 --- !u!61 &7156541424529510213
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 929238720710905900}
   - component: {fileID: -3270572031145028696}
   m_Layer: 8
-  m_Name: Bullet
+  m_Name: BulletLeaser
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,6 +101,14 @@ MonoBehaviour:
   direction: 0
   explosionPrefab: {fileID: 5550233823308428595, guid: 5d714bc570449f840b988b1f8f348d87, type: 3}
   power: 1
+  sprites:
+  - {fileID: 2639281999767427178, guid: f6b3ae2058bc79749ab45355e53142ed, type: 3}
+  - {fileID: 1126679925921724968, guid: f6b3ae2058bc79749ab45355e53142ed, type: 3}
+  - {fileID: -4304579945922524286, guid: f6b3ae2058bc79749ab45355e53142ed, type: 3}
+  - {fileID: -3534138545433181323, guid: f6b3ae2058bc79749ab45355e53142ed, type: 3}
+  - {fileID: -7998035068682987497, guid: f6b3ae2058bc79749ab45355e53142ed, type: 3}
+  - {fileID: -1049364310728632812, guid: f6b3ae2058bc79749ab45355e53142ed, type: 3}
+  spriteRenderer: {fileID: 5106443496039291348}
 --- !u!61 &929238720710905900
 BoxCollider2D:
   m_ObjectHideFlags: 0

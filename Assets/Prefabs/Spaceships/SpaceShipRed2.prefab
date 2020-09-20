@@ -264,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   fireRate: 0.55
-  bulletPrefab: {fileID: 5106443496039291347, guid: f28dbcd21f4205f4e84110a8f0af9609, type: 3}
+  bulletPrefab: {fileID: 2984143271656588986, guid: c97c69c5f6e981f43921b16d3be7bbbf, type: 3}
   guns:
   - {fileID: 188739960216699915}
   - {fileID: 188739958585265162}
