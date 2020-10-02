@@ -21,6 +21,11 @@ public class SpaceShipController : MonoBehaviour
     private const string flameAnimationParameter = "speed";
 
 
+    public void ShootGun()
+    {
+        this.Fire();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +45,7 @@ public class SpaceShipController : MonoBehaviour
         this.CheckSpaceShipOutOfBounds();
 
         //Shot
-        this.ShootGun();
+        this.ShootGunWithKeybord();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -71,21 +76,26 @@ public class SpaceShipController : MonoBehaviour
         }
     }
 
-    private void ShootGun()
+    private void ShootGunWithKeybord()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Fire bullet
-            //Debug.Log("Fire bullet");
+            this.Fire();
+        }
+    }
 
-            if (Time.time > fireRate + lastShoot)
+    private void Fire()
+    {
+        // Fire bullet
+        //Debug.Log("Fire bullet");
+
+        if (Time.time > fireRate + lastShoot)
+        {
+            foreach (var gun in guns)
             {
-                foreach (var gun in guns)
-                {
-                    Instantiate(bulletPrefab, gun.transform.position, quaternion.identity);
-                }
-                lastShoot = Time.time;
+                Instantiate(bulletPrefab, gun.transform.position, quaternion.identity);
             }
+            lastShoot = Time.time;
         }
     }
 
