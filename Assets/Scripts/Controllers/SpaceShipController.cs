@@ -17,6 +17,8 @@ public class SpaceShipController : MonoBehaviour
     [SerializeField]
     private int _health;
     private float lastShoot = 0;
+    private float h;
+    private float v;
 
     private const string flameAnimationParameter = "speed";
 
@@ -24,6 +26,32 @@ public class SpaceShipController : MonoBehaviour
     public void ShootGun()
     {
         this.Fire();
+    }
+
+    public void MoveUp()
+    {
+        v = 1;
+    }
+
+    public void MoveDown()
+    {
+        v = -1;
+    }
+
+    public void MoveRight()
+    {
+        h = 1;
+    }
+
+    public void MoveLeft()
+    {
+        h = -1;
+    }
+
+    public void StopMoving()
+    {
+        v = 0;
+        h = 0;
     }
 
     // Start is called before the first frame update
@@ -35,8 +63,8 @@ public class SpaceShipController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        this.CheckKeyboardInput();
+
         Vector3 move = new Vector3(h, v, 0) * speed * Time.deltaTime;
         transform.position += move;
         animatorFlame.SetFloat(flameAnimationParameter, move.sqrMagnitude);
@@ -46,6 +74,36 @@ public class SpaceShipController : MonoBehaviour
 
         //Shot
         this.ShootGunWithKeybord();
+    }
+
+    private void CheckKeyboardInput()
+    {
+        //h = Input.GetAxis("Horizontal");
+        //v = Input.GetAxis("Vertical");
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            this.MoveUp();
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            this.MoveDown();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            this.MoveRight();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            this.MoveLeft();
+        }
+
+        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            this.StopMoving();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
